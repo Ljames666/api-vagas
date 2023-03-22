@@ -14,7 +14,11 @@
         "migration:generate": "npm run typeorm migration:generate -- -d ./src/main/config/typeorm.config.ts",
         "migration:run": "npm run typeorm migration:run -- -d ./src/main/config/typeorm.config.ts",
         "test": "jest --silent --noStackTrace --runInBand",
-        "test:coverage": "jest --runInBand --coverage"
+        "test:coverage": "jest --runInBand --coverage",
+        "test:unit": "jest -c jest.unit.config.ts --silent --noStackTrace --runInBand",
+        "test:unit:verbose": "jest -c jest.unit.config.ts --verbose --runInBand",
+        "test:unit:coverage": "jest -c jest.unit.config.ts --silent --noStackTrace --runInBand --coverage",
+        "test:unit:watch": "jest -c jest.unit.config.ts --silent --noStackTrace --runInBand --watchAll"
     },
     "keywords": [],
     "author": "",

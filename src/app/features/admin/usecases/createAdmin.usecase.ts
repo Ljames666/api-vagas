@@ -11,7 +11,7 @@ interface CreatedAdminDTO {
 export class CreateAdminUseCase {
   constructor(private repository: UsuarioRepository) {}
 
-  public async execute(data: CreatedAdminDTO) {
+  public async execute(data: CreatedAdminDTO): Promise<any> {
     const admin = new Admin(data.nome, data.username, data.senha);
 
     const cacheRepository = new CacheRepository();
@@ -19,6 +19,10 @@ export class CreateAdminUseCase {
 
     const result = await this.repository.criaUsuario(admin);
 
-    return (result as Admin).toJsonAdmin();
+    return {
+      id: result.id,
+      nome: result.nome,
+      username: result.username,
+    };
   }
 }
